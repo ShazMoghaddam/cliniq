@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: cliniq-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: frankfurt
+    healthCheckPath: /
+
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cliniq-db
+          property: connectionString
+
+      - key: SECRET_KEY
+        generateValue: true
+
+      - key: ANTHROPIC_API_KEY
+        sync: false
+
+      - key: DEBUG
+        value: "false"
+
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "60"
+
+    autoDeploy: true
+
+databases:
+  - name: cliniq-db
+    plan: free
+    region: frankfurt
+    databaseName: cliniq
+    user: cliniq

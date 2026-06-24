@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "cliniq"
+version = "1.0.0"
+description = "Clinical Trial Site Performance Intelligence Platform"
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "Proprietary" }
+authors = [
+    { name = "Shaz Moghaddam", email = "shaz@shazmoghaddam.github.io" }
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cliniq*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["cliniq"]
+omit = ["cliniq/dashboard/app.py", "tests/*", "*/seeder.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

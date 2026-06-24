@@ -1,0 +1,37 @@
+# ClinIQ — production dependencies
+
+# Web framework
+fastapi==0.138.0
+uvicorn[standard]==0.34.2
+gunicorn==23.0.0
+
+# Dashboard
+dash==4.3.0
+dash-bootstrap-components==2.0.4
+plotly==6.8.0
+
+# Database
+sqlalchemy==2.0.41
+alembic==1.14.1
+psycopg2-binary==2.9.10
+
+# Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# ML / Analytics
+scikit-learn==1.8.0
+numpy==2.4.4
+spacy==3.8.14
+
+# AI
+anthropic==0.111.0
+
+# Data generation
+faker==40.23.0
+
+# HTTP client
+httpx==0.28.1
+
+# Validation
+pydantic==2.11.5
